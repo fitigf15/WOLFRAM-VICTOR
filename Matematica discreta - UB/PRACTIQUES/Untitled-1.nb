@@ -1,0 +1,324 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     10470,        314]
+NotebookOptionsPosition[      9156,        265]
+NotebookOutlinePosition[      9501,        280]
+CellTagsIndexPosition[      9458,        277]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["MD 1r EXAMEN", "Title",
+ CellChangeTimes->{{3.413559558546875*^9, 3.4135595586875*^9}, {
+  3.53728479843112*^9, 3.537284799141121*^9}, {3.572259659446526*^9, 
+  3.5722596668996034`*^9}, {3.5722615249658365`*^9, 3.5722615255439577`*^9}},
+ TextAlignment->Center],
+
+Cell["Basics", "Title",
+ CellChangeTimes->{{3.413559558546875*^9, 3.4135595586875*^9}, {
+  3.53728479843112*^9, 3.537284799141121*^9}, {3.572259659446526*^9, 
+  3.5722596668996034`*^9}, {3.57225986507021*^9, 3.572259872929535*^9}},
+ TextAlignment->Center],
+
+Cell[BoxData[{
+ RowBox[{"IntegerDigits", "[", 
+  RowBox[{"num", ",", "base"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FromDigits", "[", 
+  RowBox[{"num", ",", "base"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"base", "^", 
+  RowBox[{"^", "num"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ToCharacterCode", "[", "missatge", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FromCharacterToCode", "[", "missatgeCod", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FactorInteger", "[", "num", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Prime", "[", "num", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"PrimeQ", "[", "num", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"GCD", "[", 
+  RowBox[{"numA", ",", "numB"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"LCD", "[", 
+  RowBox[{"numA", ",", "numB"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"PowerMod", "[", 
+  RowBox[{"numA", ",", "numB", ",", "modul"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"PowerMod", "[", 
+  RowBox[{"numA", ",", 
+   RowBox[{"-", "1"}], ",", "modul"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Solve", "[", 
+  RowBox[{"equacio", ",", 
+   RowBox[{"Modulus", "\[Rule]", "modul"}]}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.572259672696441*^9, 3.572259850570303*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Codificacio/Decodificacio", "Title",
+ CellChangeTimes->{{3.413559558546875*^9, 3.4135595586875*^9}, {
+  3.53728479843112*^9, 3.537284799141121*^9}, {3.572259659446526*^9, 
+  3.5722596668996034`*^9}, {3.5722598751326456`*^9, 3.572259876632636*^9}, {
+  3.572260084131308*^9, 3.572260085943796*^9}},
+ TextAlignment->Center],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Codificar", "[", "message_String", "]"}], ":=", 
+  RowBox[{"FromDigits", "[", 
+   RowBox[{
+    RowBox[{"ToCharacterCode", "[", "message", "]"}], ",", 
+    RowBox[{"c", "=", "256"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Decodificar", "[", "x_", "]"}], ":=", 
+  RowBox[{"FromCharacterCode", "[", 
+   RowBox[{"IntegerDigits", "[", 
+    RowBox[{"x", ",", "c"}], "]"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.5722599010387297`*^9, 3.572260148521521*^9}, 
+   3.5722602200366883`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"missatge", "=", "\"\<17:00h, Trafalgar Sq.\>\""}], ";"}]], "Input",
+ CellChangeTimes->{{3.572260207443019*^9, 3.5722602136148543`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Codificar", "[", "missatge", "]"}]], "Input",
+ CellChangeTimes->{{3.572260159287077*^9, 3.5722601666932793`*^9}}],
+
+Cell[BoxData["71928872362692816107003552863877699680621980512558"], "Output",
+ CellChangeTimes->{3.572260167146402*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Decodificar", "[", 
+  RowBox[{"Codificar", "[", "missatge", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.5722601679901466`*^9, 3.5722601828181763`*^9}}],
+
+Cell[BoxData["\<\"17:00h, Trafalgar Sq.\"\>"], "Output",
+ CellChangeTimes->{3.5722601833806725`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Encriptacio/Desencriptacio", "Title",
+ CellChangeTimes->{{3.413559558546875*^9, 3.4135595586875*^9}, {
+  3.53728479843112*^9, 3.537284799141121*^9}, {3.572259659446526*^9, 
+  3.5722596668996034`*^9}, {3.5722598751326456`*^9, 3.572259876632636*^9}, {
+  3.572260084131308*^9, 3.572260085943796*^9}, {3.572260243786536*^9, 
+  3.572260251489612*^9}},
+ TextAlignment->Center],
+
+Cell["BASES", "Subtitle",
+ CellChangeTimes->{{3.5722609923598704`*^9, 3.572260996047347*^9}, {
+  3.5722610354689693`*^9, 3.5722610436095424`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"p", "=", "num1"}], "\[IndentingNewLine]", 
+ RowBox[{"q", "=", "num2"}], "\[IndentingNewLine]", 
+ RowBox[{"n", "=", 
+  RowBox[{"p", "*", "q"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Euler", "=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"p", "-", "1"}], ")"}], "*", 
+   RowBox[{"(", 
+    RowBox[{"q", "-", "1"}], ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"e", "=", "nombreCoprimerAmbEuler"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"compleix", " ", 
+     RowBox[{"GCD", "[", 
+      RowBox[{"Euler", ",", "e"}], "]"}]}], "\[Equal]", "1"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"d", "=", 
+   RowBox[{"PowerMod", "[", 
+    RowBox[{"e", ",", 
+     RowBox[{"-", "1"}], ",", "Euler"}], "]"}]}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"e", "*", "d"}], "\[Equal]", 
+    RowBox[{"1", " ", "mod", " ", "Euler"}]}], " ", 
+   "*)"}]}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.5722602641145315`*^9, 3.5722602922081013`*^9}, {
+   3.5722607412833524`*^9, 3.572260777095623*^9}, {3.572260815454753*^9, 
+   3.5722608745637493`*^9}, {3.572260918235345*^9, 3.572260931188387*^9}, 
+   3.5722609624850616`*^9, {3.5722610366252117`*^9, 3.572261062578171*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["ENCRIPTACIO", "Subtitle",
+ CellChangeTimes->{{3.5722609923598704`*^9, 3.572261013515985*^9}}],
+
+Cell["Normal:", "Text",
+ CellChangeTimes->{{3.5722613269983535`*^9, 3.5722613276389747`*^9}, 
+   3.5722613865448475`*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"x", "=", 
+   RowBox[{"Codificar", "[", "missatge", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"y", "=", 
+   RowBox[{"PowerMod", "[", 
+    RowBox[{"x", ",", "e", ",", "n"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"misEncriptat", "=", 
+  RowBox[{"Decodificar", "[", "y", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.572261333670186*^9, 3.57226137523242*^9}, {
+  3.572261481231742*^9, 3.572261483653601*^9}}],
+
+Cell["Automatitzat:", "Text",
+ CellChangeTimes->{{3.572261381935502*^9, 3.5722613882635865`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Encriptar", "[", 
+   RowBox[{"message_String", ",", "e_", ",", "n_"}], "]"}], ":=", 
+  "\[IndentingNewLine]", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"c", "=", "256"}], ",", "x", ",", "y"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"x", "=", 
+      RowBox[{"FromDigits", "[", 
+       RowBox[{
+        RowBox[{"ToCharacterCode", "[", "message", "]"}], ",", "c"}], "]"}]}],
+      ";", "\[IndentingNewLine]", 
+     RowBox[{"y", "=", 
+      RowBox[{"PowerMod", "[", 
+       RowBox[{"x", ",", "e", ",", "n"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"FromCharacterCode", "[", 
+      RowBox[{"IntegerDigits", "[", 
+       RowBox[{"y", ",", "c"}], "]"}], "]"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.572261069156254*^9, 3.572261260576904*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["ENCRIPTACIO", "Subtitle",
+ CellChangeTimes->{{3.5722609923598704`*^9, 3.572261013515985*^9}}],
+
+Cell["Normal:", "Text",
+ CellChangeTimes->{{3.5722613937791767`*^9, 3.572261394654171*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"z", "=", 
+   RowBox[{"PowerMod", "[", 
+    RowBox[{"y", ",", "d", ",", "n"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"misDesencriptat", "=", 
+  RowBox[{"Decodificar", "[", "z", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.5722614001072607`*^9, 3.572261453013172*^9}, 
+   3.572261489919186*^9}],
+
+Cell["Automatitzat:", "Text",
+ CellChangeTimes->{{3.5722614580912647`*^9, 3.572261460278751*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Desencriptar", "[", 
+   RowBox[{"message_String", ",", "d_", ",", "n_"}], "]"}], ":=", 
+  "\[IndentingNewLine]", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"c", "=", "256"}], ",", "y", ",", "z"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"y", "=", 
+      RowBox[{"FromDigits", "[", 
+       RowBox[{
+        RowBox[{"ToCharacterCode", "[", "message", "]"}], ",", "c"}], "]"}]}],
+      ";", "\[IndentingNewLine]", 
+     RowBox[{"z", "=", 
+      RowBox[{"PowerMod", "[", 
+       RowBox[{"y", ",", "d", ",", "n"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"FromCharacterCode", "[", 
+      RowBox[{"IntegerDigits", "[", 
+       RowBox[{"z", ",", "c"}], "]"}], "]"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.411736288046875*^9, 3.41173632440625*^9}, 
+   3.5722612875611057`*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{715, 783},
+WindowMargins->{{169, Automatic}, {55, Automatic}},
+FrontEndVersion->"8.0 for Microsoft Windows (32-bit) (November 7, 2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 266, 4, 83, "Title"],
+Cell[848, 28, 255, 4, 83, "Title"],
+Cell[1106, 34, 1233, 26, 292, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2376, 65, 326, 5, 83, "Title"],
+Cell[2705, 72, 535, 13, 52, "Input"],
+Cell[3243, 87, 170, 3, 31, "Input"],
+Cell[CellGroupData[{
+Cell[3438, 94, 137, 2, 31, "Input"],
+Cell[3578, 98, 119, 1, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3734, 104, 177, 3, 31, "Input"],
+Cell[3914, 109, 100, 1, 30, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4063, 116, 376, 6, 83, "Title"],
+Cell[4442, 124, 146, 2, 49, "Subtitle"],
+Cell[4591, 128, 1239, 32, 152, "Input"],
+Cell[CellGroupData[{
+Cell[5855, 164, 99, 1, 49, "Subtitle"],
+Cell[5957, 167, 121, 2, 29, "Text"],
+Cell[6081, 171, 468, 12, 72, "Input"],
+Cell[6552, 185, 97, 1, 29, "Text"],
+Cell[6652, 188, 887, 24, 132, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7576, 217, 99, 1, 49, "Subtitle"],
+Cell[7678, 220, 91, 1, 29, "Text"],
+Cell[7772, 223, 336, 8, 52, "Input"],
+Cell[8111, 233, 97, 1, 29, "Text"],
+Cell[8211, 236, 917, 25, 132, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

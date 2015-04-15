@@ -1,0 +1,221 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      6399,        212]
+NotebookOptionsPosition[      5310,        177]
+NotebookOutlinePosition[      5781,        196]
+CellTagsIndexPosition[      5738,        193]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"VARIACIO", "[", 
+   RowBox[{"n_", ",", "m_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"m", "!"}], "/", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"m", "-", "n"}], ")"}], "!"}]}]}], "\n", 
+ RowBox[{
+  RowBox[{"VARIACIOR", "[", 
+   RowBox[{"n_", ",", "m_"}], "]"}], ":=", 
+  RowBox[{"m", "^", "n"}]}], "\n", 
+ RowBox[{
+  RowBox[{"PERMUTACIO", "[", "n_", "]"}], ":=", 
+  RowBox[{"n", "!"}]}], "\n", 
+ RowBox[{
+  RowBox[{"PERMUTACIOC", "[", "n_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"n", "-", "1"}], ")"}], "!"}]}], "\n", 
+ RowBox[{
+  RowBox[{"PERMUTACIOR", "[", 
+   RowBox[{"n_", ",", "LlistaElemRepetits_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"PERMUTACIO", "[", "n", "]"}], "/", 
+   RowBox[{"Det", "[", 
+    RowBox[{"DiagonalMatrix", "[", 
+     RowBox[{"LlistaElemRepetits", "!"}], "]"}], "]"}]}]}], "\n", 
+ RowBox[{
+  RowBox[{"COMBINACIO", "[", 
+   RowBox[{"n_", ",", "m_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"m", "!"}], "/", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"n", "!"}], "*", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"m", "-", "n"}], ")"}], "!"}]}], ")"}]}]}], "\n", 
+ RowBox[{
+  RowBox[{"COMBINACIOR", "[", 
+   RowBox[{"n_", ",", "m_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"m", "+", "n", "-", "1"}], ")"}], "!"}], "/", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"n", "!"}], "*", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"m", "-", "1"}], ")"}], "!"}]}], ")"}]}]}]}], "Input",
+ CellChangeTimes->{{3.57589399128981*^9, 3.5758939912908106`*^9}}],
+
+Cell["Pr\[AGrave]ctica 6: Combinat\[OGrave]ria ", "Title",
+ CellChangeTimes->{{3.5407109621367188`*^9, 3.5407109627509766`*^9}, {
+  3.5413913467197266`*^9, 3.541391346879883*^9}},
+ TextAlignment->Center],
+
+Cell[TextData[{
+ "En aquesta pr\[AGrave]ctica s'introdueixen les nocions b\[AGrave]siques de \
+la combinat\[OGrave]ria. Resoldrem uns quants exercicis elementals i \
+utilitzarem ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " per comprovar-ne els resultats."
+}], "Text"],
+
+Cell["Exercici 1:", "Subsubsection"],
+
+Cell["\<\
+Quants m\[UAcute]ltiples de 5 hi ha entre 1 i 5000? I m\[UAcute]ltiples de 3? 
+Usant el principi d'inclusi\[OAcute]-exclusi\[OAcute], dedu\[IDoubleDot]u \
+quants nombres entre 1 i 5000 no s\[OAcute]n m\[UAcute]ltiples de 5 ni de 3. \
+Genereu una llista amb aquests nombres per comprovar el vostre resultat.\
+\>", "Text"],
+
+Cell["Exercici 2:", "Subsubsection"],
+
+Cell["\<\
+Quants passwords diferents de 6 car\[AGrave]cters es poden generar amb els 10 \
+d\[IAcute]gits i les 26 lletres de l'alfabet internacional?\
+\>", "Text"],
+
+Cell[TextData[{
+ "Quina longitud hauria de tenir un password per qu\[EGrave] hi hagi m\
+\[EAcute]s de 6.022 \[Cross] ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["10", "23"], TraditionalForm]]],
+ " possibilitats?"
+}], "Text"],
+
+Cell["Exercici 3:", "Subsubsection"],
+
+Cell["Considerem el conjunt seg\[UDoubleDot]ent:", "Text"],
+
+Cell[BoxData[
+ RowBox[{"L", "=", 
+  RowBox[{"{", 
+   RowBox[{"a", ",", "b", ",", "c", ",", "d", ",", "e", ",", "f"}], 
+   "}"}]}]], "Input"],
+
+Cell[TextData[{
+ "Expliqueu com generar sistem\[AGrave]ticament una llista amb totes les \
+seleccions ordenades de tres elements diferents de L,\nfeu servir \
+Permutations[] del paque ",
+ StyleBox["Combinatorica",
+  FontSlant->"Italic"],
+ ".\nQuants elements tindr\[AGrave] la llista?"
+}], "Text",
+ CellChangeTimes->{{3.5407123080927734`*^9, 3.540712345845703*^9}}],
+
+Cell["Quants nombres entre 0 i 9999 no tenen cap xifra repetida? ", "Text"],
+
+Cell["Exercici 4:", "Subsubsection"],
+
+Cell[TextData[{
+ "De quantes maneres podem dividir una classe de 40 alumnes en dos grups de \
+problemes de 20 alumnes cadascun?\nCalculeu el coeficient de ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["x", "20"], TraditionalForm]]],
+ " en ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"1", "+", "x"}], ")"}], "40"], TraditionalForm]]],
+ " sense desenvolupar el binomi i despr\[EAcute]s comproveu el resultat \
+executant la instrucci\[OAcute] seg\[UDoubleDot]ent:"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{"Expand", "[", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"1", "+", "x"}], ")"}], "^", "40"}], "]"}]], "Input"],
+
+Cell["Exercici 5:", "Subsubsection"],
+
+Cell[TextData[{
+ "Amb la funci\[OAcute] ",
+ StyleBox["Permutations", "Output"],
+ ", compteu quantes paraules diferents es poden formar amb les lletres de la \
+paraula 'EXCLUSIO'. Feu el mateix amb les lletres de la paraula 'INCLUSIO'. \
+Qu\[EGrave] observeu? "
+}], "Text"],
+
+Cell["\<\
+Feu el mateix per la paraula 'PRINCIPI'. Compareu el resultat amb els dos \
+anteriors.
+Intenteu inferir una relaci\[OAcute] entre el nombre de lletres repetides i \
+el nombre de permutacions.\
+\>", "Text"]
+},
+ScreenStyleEnvironment->"Presentation",
+CellGrouping->Manual,
+WindowSize->{1277, 654},
+WindowMargins->{{228, Automatic}, {Automatic, 63}},
+PrintingCopies->1,
+PrintingPageRange->{Automatic, Automatic},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 1561, 53, 289, "Input"],
+Cell[2109, 75, 203, 3, 141, "Title"],
+Cell[2315, 80, 277, 7, 80, "Text"],
+Cell[2595, 89, 36, 0, 45, "Subsubsection"],
+Cell[2634, 91, 330, 5, 105, "Text"],
+Cell[2967, 98, 36, 0, 45, "Subsubsection"],
+Cell[3006, 100, 163, 3, 73, "Text"],
+Cell[3172, 105, 227, 7, 50, "Text"],
+Cell[3402, 114, 36, 0, 45, "Subsubsection"],
+Cell[3441, 116, 58, 0, 41, "Text"],
+Cell[3502, 118, 140, 4, 50, "Input"],
+Cell[3645, 124, 365, 8, 144, "Text"],
+Cell[4013, 134, 75, 0, 47, "Text"],
+Cell[4091, 136, 36, 0, 45, "Subsubsection"],
+Cell[4130, 138, 509, 14, 140, "Text"],
+Cell[4642, 154, 132, 4, 50, "Input"],
+Cell[4777, 160, 36, 0, 45, "Subsubsection"],
+Cell[4816, 162, 272, 6, 74, "Text"],
+Cell[5091, 170, 215, 5, 79, "Text"]
+}
+]
+*)
+
+(* End of internal cache information *)

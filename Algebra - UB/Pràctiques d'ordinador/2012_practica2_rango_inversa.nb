@@ -1,0 +1,738 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     21527,        728]
+NotebookOptionsPosition[     19753,        667]
+NotebookOutlinePosition[     20128,        684]
+CellTagsIndexPosition[     20085,        681]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "\n",
+ StyleBox["Pr\[AGrave]ctica 2: RANG, DETERMINANT I MATRIU INVERSA", "Title",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox["\n", "Title",
+  FontColor->RGBColor[0.500008, 0, 0.500008]]
+}], "Section",
+ CellChangeTimes->{{3.42996032753125*^9, 3.429960359484375*^9}, {
+  3.430023021640625*^9, 3.430023027109375*^9}, {3.430023527359375*^9, 
+  3.430023535578125*^9}, {3.43002499853125*^9, 3.43002501515625*^9}, {
+  3.527579077884191*^9, 3.527579078013591*^9}, {3.5580858997051573`*^9, 
+  3.558085907424101*^9}, {3.558086358133232*^9, 3.558086374668652*^9}},
+ TextAlignment->-0.5,
+ FontSize->16],
+
+Cell[CellGroupData[{
+
+Cell["Exercici 1", "Subsection",
+ CellChangeTimes->{{3.429957227171875*^9, 3.429957254515625*^9}, {
+   3.42995742040625*^9, 3.429957420515625*^9}, 3.429958325328125*^9, {
+   3.429960377953125*^9, 3.429960381765625*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "Considerem les matrius ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["A", "n"], ",", " ", 
+    RowBox[{"n", " ", ">", "0"}]}], TraditionalForm]]],
+ ", seg\[UDoubleDot]ents:\n\n\t\t\t",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["A", "n"], "=", 
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"1", "2", "3", "...", "n"},
+       {"2", "3", "4", "...", 
+        RowBox[{"n", "+", "1"}]},
+       {"3", "4", "5", "...", 
+        RowBox[{"n", "+", "2"}]},
+       {"...", "...", "...", "...", "..."},
+       {"n", 
+        RowBox[{"n", "+", "1"}], 
+        RowBox[{"n", "+", "2"}], "...", 
+        RowBox[{
+         RowBox[{"2", "n"}], "-", "1"}]}
+      }], "\[NoBreak]", ")"}]}], TraditionalForm]]],
+ ".\n\nCalculeu el rang de",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{" ", 
+    RowBox[{
+     SubscriptBox["A", "1"], ",", " ", 
+     SubscriptBox["A", "2"], ",", " ", 
+     SubscriptBox["A", "3"], ",", " ", 
+     SubscriptBox["A", "5"], ",", " ", 
+     SubscriptBox["A", "12"]}]}], TraditionalForm]]],
+ " amb l'ajut de la instrucci\[OAcute] ",
+ StyleBox["RowReduce",
+  FontWeight->"Bold"],
+ ". Tenen inversa aquestes matrius? (utilitzeu la comanda",
+ StyleBox[" Inverse",
+  FontWeight->"Bold"],
+ ")"
+}], "Text",
+ CellChangeTimes->{{3.429957061828125*^9, 3.429957153921875*^9}, {
+   3.4299571839375*^9, 3.42995719615625*^9}, {3.429957436609375*^9, 
+   3.42995744496875*^9}, {3.429960386234375*^9, 3.429960619453125*^9}, {
+   3.429960823921875*^9, 3.429960831484375*^9}, {3.4299624329375*^9, 
+   3.4299624351875*^9}, {3.42996373371875*^9, 3.42996374009375*^9}, {
+   3.4300235400625*^9, 3.43002358709375*^9}, {3.430023656125*^9, 
+   3.430023757265625*^9}, {3.43002378859375*^9, 3.430023820921875*^9}, {
+   3.4300238839375*^9, 3.43002389478125*^9}, 3.430024934921875*^9, {
+   3.430025022546875*^9, 3.430025258828125*^9}, {3.461994630578125*^9, 
+   3.461994633*^9}},
+ FontSize->16],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.42996380315625*^9, 3.42996380415625*^9}},
+ FontSize->16]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Exercici 2", "Subsection",
+ CellChangeTimes->{{3.429957227171875*^9, 3.429957254515625*^9}, {
+   3.42995742040625*^9, 3.429957420515625*^9}, 3.429958325328125*^9, {
+   3.429960377953125*^9, 3.429960381765625*^9}, {3.429961248640625*^9, 
+   3.42996125*^9}, {3.42996136878125*^9, 3.429961369375*^9}, {
+   3.527579102131975*^9, 3.527579102508209*^9}, {3.5580858529204617`*^9, 
+   3.558085853120446*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "Considerem les matrius seg\[UDoubleDot]ents:\n",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["B", "1"], "=", 
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"2", "1", "3"},
+       {"1", "0", 
+        RowBox[{"-", "2"}]},
+       {"3", "1", "2"}
+      }], "\[NoBreak]", ")"}]}], ","}]]],
+ " ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["B", "2"], "=", 
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"7", "2", "3", "6"},
+       {
+        RowBox[{"-", "2"}], 
+        RowBox[{"-", "1"}], "0", "0"},
+       {"0", "3", 
+        RowBox[{"-", "1"}], 
+        RowBox[{"-", "1"}]},
+       {"5", "4", "2", "5"}
+      }], "\[NoBreak]", ")"}]}], ",", " "}]]],
+ " ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox["B", "3"], "=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {"3", 
+       RowBox[{"-", "1"}], "2"},
+      {"4", "0", 
+       RowBox[{"-", "2"}]},
+      {
+       RowBox[{"-", "1"}], "2", "1"}
+     }], "\[NoBreak]", ")"}]}]]],
+ "\n\n",
+ StyleBox["(i)   ",
+  FontSlant->"Italic"],
+ "Calculeu els seus rangs utilitzant ",
+ StyleBox["RowReduce",
+  FontWeight->"Bold"],
+ ".\n",
+ StyleBox["(ii)",
+  FontSlant->"Italic"],
+ "  Quines d'aquestes matrius tenen inversa?\n",
+ StyleBox["(iii)",
+  FontSlant->"Italic"],
+ " En cas que sigui possible, calculeu la matriu inversa amb la instrucci\
+\[OAcute] ",
+ StyleBox["Inverse.",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.429957061828125*^9, 3.429957153921875*^9}, {
+  3.4299571839375*^9, 3.42995719615625*^9}, {3.429957436609375*^9, 
+  3.42995744496875*^9}, {3.429960386234375*^9, 3.429960619453125*^9}, {
+  3.42996065928125*^9, 3.429960885328125*^9}, {3.429960964140625*^9, 
+  3.429961026890625*^9}, {3.42996109596875*^9, 3.429961101703125*^9}, {
+  3.42996116534375*^9, 3.42996121415625*^9}, {3.429961257671875*^9, 
+  3.42996127625*^9}, {3.429961339875*^9, 3.429961540734375*^9}, {
+  3.429963882859375*^9, 3.42996390134375*^9}, {3.430024121890625*^9, 
+  3.430024140125*^9}, {3.430025395921875*^9, 3.43002560115625*^9}, {
+  3.461994753375*^9, 3.461994792984375*^9}, {3.461994835109375*^9, 
+  3.461994841453125*^9}},
+ FontSize->16]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Exercici 3",
+ FontSize->16]], "Subsection",
+ CellChangeTimes->{{3.412504740890625*^9, 3.41250474984375*^9}, 
+   3.412509846296875*^9, {3.429954954296875*^9, 3.429954961109375*^9}, {
+   3.429955042375*^9, 3.4299550588125*^9}},
+ FontSize->16],
+
+Cell["Calculeu el determinant de la matriu  ", "Text",
+ CellChangeTimes->{{3.429957061828125*^9, 3.429957153921875*^9}, 
+   3.429958304953125*^9, {3.43004356203125*^9, 3.430043569703125*^9}, {
+   3.4304714028125*^9, 3.4304714035625*^9}, 3.4334983661358414`*^9, {
+   3.433501041901467*^9, 3.433501054901467*^9}, {3.433502507682717*^9, 
+   3.433502514026467*^9}, {3.436081028984375*^9, 3.436081102265625*^9}, {
+   3.461996562765625*^9, 3.461996568953125*^9}, 3.531471538620487*^9, {
+   3.531485482071016*^9, 3.531485483409412*^9}, 3.531552449627352*^9, {
+   3.531553107498703*^9, 3.531553108068459*^9}},
+ FontSize->16],
+
+Cell[BoxData[
+ RowBox[{"A", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"1.03", ",", "2.3", ",", "3.1", ",", "4.52"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"4.12", ",", "3.04", ",", "4", ",", "1.08"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"3.34", ",", "4.52", ",", "1.12", ",", "2.2"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"4.3", ",", "1.1", ",", "3.1", ",", "3.2"}], "}"}]}], 
+   "}"}]}]], "Input",
+ CellChangeTimes->{{3.531552452769367*^9, 3.531552563699686*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "fent servir la instrucci\[OAcute] ",
+ StyleBox["Det",
+  FontWeight->"Bold"],
+ ". Decidiu si ",
+ StyleBox["A",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " t\[EAcute] inversa o no. Si en t\[EAcute], trobeu-la. "
+}], "Text",
+ CellChangeTimes->{{3.429957061828125*^9, 3.429957153921875*^9}, 
+   3.429958304953125*^9, {3.43004356203125*^9, 3.430043569703125*^9}, {
+   3.4304714028125*^9, 3.4304714035625*^9}, 3.4334983661358414`*^9, {
+   3.433501041901467*^9, 3.433501054901467*^9}, {3.433502507682717*^9, 
+   3.433502514026467*^9}, {3.436081028984375*^9, 3.436081102265625*^9}, {
+   3.461996562765625*^9, 3.461996568953125*^9}, 3.531471538620487*^9, {
+   3.531485482071016*^9, 3.531485483409412*^9}, 3.531552569629535*^9, 
+   3.53155848629975*^9},
+ FontSize->16]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Exercici 4",
+ FontSize->16]], "Subsection",
+ CellChangeTimes->{{3.429957159140625*^9, 3.42995719259375*^9}, {
+   3.433498492463967*^9, 3.4334984925420914`*^9}, 3.436081003171875*^9, {
+   3.531471749854635*^9, 3.531471749981315*^9}, {3.531485580457405*^9, 
+   3.531485580739896*^9}, {3.531553095202561*^9, 3.531553095330736*^9}},
+ FontSize->16],
+
+Cell["Siguin", "Text",
+ CellChangeTimes->{{3.4335031467295914`*^9, 3.433503201432717*^9}, {
+  3.436080998359375*^9, 3.43608101465625*^9}, {3.462090117520191*^9, 
+  3.462090117770191*^9}, {3.531471818671771*^9, 3.531471819442415*^9}},
+ FontSize->16],
+
+Cell[BoxData[
+ RowBox[{"A", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"1", ",", "0", ",", "3"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "2", ",", 
+      RowBox[{"-", "1"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "1"}], ",", "0", ",", "1"}], "}"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.4335032050420914`*^9, 3.4335032079170914`*^9}, {
+  3.531471754100143*^9, 3.531471799783567*^9}},
+ FontSize->16],
+
+Cell[BoxData[
+ RowBox[{"B", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"2", ",", "1", ",", 
+      RowBox[{"-", "1"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "1", ",", "8"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0", ",", 
+      RowBox[{"-", "1"}]}], "}"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.531471804559247*^9, 3.531471836990692*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "Calculeu ",
+ StyleBox["|A.B|",
+  FontWeight->"Bold"],
+ ", ",
+ StyleBox["|A+B|",
+  FontWeight->"Bold"],
+ ", ",
+ StyleBox["|A^10|",
+  FontWeight->"Bold"],
+ ", i ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{" ", 
+    RowBox[{"|", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["A", "5"], ".", "B"}], "-", 
+      SuperscriptBox["A", "6"]}]}]}], TraditionalForm]],
+  FontWeight->"Bold"],
+ StyleBox["|.",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.433503221088967*^9, 3.4335032470108414`*^9}, {
+  3.53147184043271*^9, 3.531471889097962*^9}, {3.531552935923662*^9, 
+  3.531552982534846*^9}, {3.531558539278346*^9, 3.531558587077685*^9}},
+ FontSize->16]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Exercici 5",
+ FontSize->16]], "Subsection",
+ CellChangeTimes->{{3.429954796109375*^9, 3.429954796421875*^9}, {
+   3.429955079953125*^9, 3.42995508278125*^9}, {3.429957056984375*^9, 
+   3.429957059875*^9}, 3.429958302953125*^9, {3.433498347276467*^9, 
+   3.433498348651467*^9}, {3.531485539587217*^9, 3.531485539757652*^9}, {
+   3.53155309911537*^9, 3.531553099380637*^9}},
+ FontSize->16],
+
+Cell["a) Calculeu el rang de la matriu ", "Text",
+ CellChangeTimes->{{3.429957061828125*^9, 3.429957153921875*^9}, 
+   3.429958304953125*^9, {3.43004356203125*^9, 3.430043569703125*^9}, {
+   3.4304714028125*^9, 3.4304714035625*^9}, 3.4334983661358414`*^9, {
+   3.433501666745217*^9, 3.4335016748545914`*^9}, {3.433502711838967*^9, 
+   3.4335027155733414`*^9}, {3.436081123375*^9, 3.4360811854375*^9}, {
+   3.46199662753125*^9, 3.461996822*^9}, 3.531552892709723*^9, {
+   3.531553119015171*^9, 3.5315531205345*^9}},
+ FontSize->16],
+
+Cell[BoxData[
+ RowBox[{"J", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"3", ",", "4", ",", "3", ",", "a"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "a", ",", "a", ",", "1"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "a", ",", "1", ",", 
+      RowBox[{"a", "-", "1"}]}], "}"}]}], "}"}]}]], "Input",
+ FontSize->16],
+
+Cell[TextData[{
+ "en funci\[OAcute] del valor del par\[AGrave]metre ",
+ StyleBox["a",
+  FontSlant->"Italic"],
+ ". "
+}], "Text",
+ CellChangeTimes->{{3.429957061828125*^9, 3.429957153921875*^9}, 
+   3.429958304953125*^9, {3.43004356203125*^9, 3.430043569703125*^9}, {
+   3.4304714028125*^9, 3.4304714035625*^9}, 3.4334983661358414`*^9, {
+   3.433501666745217*^9, 3.4335016748545914`*^9}, {3.433502711838967*^9, 
+   3.4335027155733414`*^9}, {3.436081123375*^9, 3.4360811854375*^9}, {
+   3.46199662753125*^9, 3.461996822*^9}, {3.531552851899658*^9, 
+   3.531552868717494*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "b) Esbrineu el significat i l' \[UAcute]s de la instrucci\[OAcute] ",
+ StyleBox["Minors",
+  FontWeight->"Bold"],
+ " per a calcular els menors d' ordre 3 de ",
+ StyleBox["J",
+  FontWeight->"Bold"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.531553154932949*^9, 3.531553159986642*^9}},
+ FontSize->16],
+
+Cell["c) Executeu ", "Text",
+ CellChangeTimes->{{3.433498436057717*^9, 3.4334984752295914`*^9}, {
+   3.4335017090420914`*^9, 3.4335018864170914`*^9}, {3.433502768963967*^9, 
+   3.4335028502608414`*^9}, 3.4335029815420914`*^9, {3.43608118459375*^9, 
+   3.436081191703125*^9}, {3.53155313934484*^9, 3.531553169452473*^9}},
+ FontSize->16],
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Minors", "[", 
+     RowBox[{"J", ",", "3"}], "]"}], "\[Equal]", "0"}], ",", "a"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.433502865213967*^9, 3.433502903776467*^9}, 
+   3.433503050807717*^9},
+ FontSize->16],
+
+Cell[TextData[{
+ "per a trobar els valors de ",
+ StyleBox["a",
+  FontSlant->"Italic"],
+ " per als quals el rang de ",
+ StyleBox["J",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " \[EAcute]s m\[EAcute]s petit que 3."
+}], "Text",
+ CellChangeTimes->{{3.4335029154170914`*^9, 3.4335029734170914`*^9}, {
+  3.4360809046875*^9, 3.4360809056875*^9}, {3.531552910822818*^9, 
+  3.531552911431787*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "d)  Amb els resultats obtinguts en c), discutiu en funci\[OAcute] de ",
+ StyleBox["a",
+  FontWeight->"Bold"],
+ " el sistema ",
+ Cell[BoxData[{
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"3", "x"}], "+", 
+     RowBox[{"4", "y"}], "+", 
+     RowBox[{"3", "z"}]}], "=", 
+    StyleBox["a",
+     FontWeight->"Bold"]}], TraditionalForm], "\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"2", "x"}], "+", 
+     StyleBox[
+      RowBox[{
+       StyleBox["a",
+        FontWeight->"Bold"], "y"}]], "+", 
+     StyleBox[
+      RowBox[{
+       StyleBox["a",
+        FontWeight->"Bold"], "z"}]]}], "=", "1"}], 
+   TraditionalForm], "\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{
+    RowBox[{"x", "+", 
+     StyleBox[
+      RowBox[{
+       StyleBox["a",
+        FontWeight->"Bold"], "y"}]], "+", " ", "z"}], "=", 
+    RowBox[{
+     StyleBox["a",
+      FontWeight->"Bold"], "-", "1"}]}], TraditionalForm]}]],
+ " \t"
+}], "Text",
+ FontSize->16],
+
+Cell[TextData[{
+ "e) Feu el mateix que en d), amb els sistemes\n                              \
+ a)  ",
+ Cell[BoxData[{
+  FormBox[
+   RowBox[{
+    RowBox[{"x", "+", "y", "+", 
+     StyleBox[
+      RowBox[{
+       StyleBox["a",
+        FontWeight->"Bold"], "z"}]]}], "=", "1"}], 
+   TraditionalForm], "\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{
+    RowBox[{"x", "-", 
+     StyleBox[
+      RowBox[{
+       StyleBox["a",
+        FontWeight->"Bold"], "y"}]], "+", "z"}], "=", 
+    RowBox[{"-", "1"}]}], TraditionalForm], "\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{
+    RowBox[{"x", "+", 
+     StyleBox[
+      RowBox[{
+       StyleBox["a",
+        FontWeight->"Bold"], "y"}]], "+", " ", "z"}], "=", 
+    StyleBox["b",
+     FontWeight->"Bold"]}], TraditionalForm]}]],
+ " \t\t\t\tb) ",
+ Cell[BoxData[{
+  FormBox[
+   RowBox[{
+    RowBox[{
+     StyleBox[
+      RowBox[{
+       StyleBox["a",
+        FontWeight->"Bold"], "x"}]], "+", "y", "+", 
+     StyleBox[
+      RowBox[{
+       StyleBox["a",
+        FontWeight->"Bold"], "z"}]]}], "=", "1"}], 
+   TraditionalForm], "\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{"  ", 
+    RowBox[{
+     RowBox[{"x", "-", "y", " ", "+", " ", "z"}], "=", 
+     StyleBox["b",
+      FontWeight->"Bold"]}]}], TraditionalForm], "\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{
+    RowBox[{
+     StyleBox[
+      RowBox[{
+       StyleBox["a",
+        FontWeight->"Bold"], "x"}]], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        StyleBox["a",
+         FontWeight->"Bold"], "-", "1"}], ")"}], "y"}], "-", "z"}], "=", 
+    RowBox[{"-", "1."}]}], TraditionalForm]}]],
+ " \t\n\nCompareu els resultats obtinguts amb l'exercici per lliurar de la \
+setmana passada."
+}], "Text",
+ FontSize->16]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[" Exercici per lliurar", "Subsection",
+ CellChangeTimes->{{3.429957227171875*^9, 3.429957254515625*^9}, {
+   3.42995742040625*^9, 3.429957420515625*^9}, 3.429958325328125*^9, {
+   3.429960377953125*^9, 3.429960381765625*^9}, {3.429961248640625*^9, 
+   3.42996125*^9}, {3.42996136878125*^9, 3.429961369375*^9}, {
+   3.429961552265625*^9, 3.429961553046875*^9}},
+ FontSize->16,
+ FontSlant->"Italic"],
+
+Cell[TextData[{
+ "Escriviu les matrius associades als sistemes lineals d'equacions seg\
+\[UDoubleDot]ents, i utilitzant la instrucci\[OAcute] ",
+ StyleBox["Minors",
+  FontWeight->"Bold"],
+ ", resoleu-los en funci\[OAcute] dels par\[AGrave]metres ",
+ "(",
+ StyleBox["a",
+  FontWeight->"Bold"],
+ ",",
+ StyleBox[" b",
+  FontWeight->"Bold"],
+ ", ",
+ StyleBox["m",
+  FontWeight->"Bold"],
+ "):"
+}], "Text",
+ FontSize->16,
+ FontSlant->"Italic"],
+
+Cell[TextData[{
+ "(i) \t2x +y-z=3\n\tx+",
+ StyleBox["m",
+  FontWeight->"Bold"],
+ "y+z=3\n\t3x+y-",
+ StyleBox["m",
+  FontWeight->"Bold"],
+ "z=4"
+}], "Text",
+ CellChangeTimes->{{3.527579306603093*^9, 3.527579344315592*^9}},
+ FontSize->16,
+ FontSlant->"Italic"],
+
+Cell[TextData[{
+ "(ii) \t2x -",
+ StyleBox["a",
+  FontWeight->"Bold"],
+ "y=1\n\t-x+2y-",
+ StyleBox["a",
+  FontWeight->"Bold"],
+ "z=1\n\t-y+2z=1"
+}], "Text",
+ CellChangeTimes->{{3.527579306603093*^9, 3.527579344315592*^9}, {
+  3.527590907873147*^9, 3.527590942797478*^9}},
+ FontSize->16,
+ FontSlant->"Italic"],
+
+Cell[TextData[{
+ "(iii) \tx +3y= 2",
+ StyleBox["a",
+  FontWeight->"Bold"],
+ "\n\tx+y=5\n\t2",
+ StyleBox["a",
+  FontWeight->"Bold"],
+ "x+6y=",
+ StyleBox["a",
+  FontWeight->"Bold"],
+ "+3"
+}], "Text",
+ CellChangeTimes->{{3.527579306603093*^9, 3.527579344315592*^9}, {
+  3.527590951302588*^9, 3.527590985542189*^9}},
+ FontSize->16,
+ FontSlant->"Italic"],
+
+Cell[TextData[{
+ "(iv) \t",
+ StyleBox["a",
+  FontWeight->"Bold"],
+ "x +",
+ StyleBox["b",
+  FontWeight->"Bold"],
+ "y+z=1\n\tx+",
+ StyleBox["ab",
+  FontWeight->"Bold"],
+ "y+z=",
+ StyleBox["b",
+  FontWeight->"Bold"],
+ "\n\tx+",
+ StyleBox["b",
+  FontWeight->"Bold"],
+ "y+",
+ StyleBox["a",
+  FontWeight->"Bold"],
+ "z=1"
+}], "Text",
+ CellChangeTimes->{{3.527579306603093*^9, 3.527579344315592*^9}, 
+   3.527590953791891*^9, {3.527590989166483*^9, 3.527591060777581*^9}},
+ FontSize->16,
+ FontSlant->"Italic"],
+
+Cell[TextData[{
+ "(v) \t",
+ StyleBox["a",
+  FontWeight->"Bold"],
+ "x +y+z+t=1\n\tx+",
+ StyleBox["a",
+  FontWeight->"Bold"],
+ "y+z+t=",
+ StyleBox["a",
+  FontWeight->"Bold"],
+ "\n\tx+y+",
+ StyleBox["a",
+  FontWeight->"Bold"],
+ "z+t=",
+ StyleBox["a^2",
+  FontWeight->"Bold"],
+ "\n\tx+y+z+",
+ StyleBox["a",
+  FontWeight->"Bold"],
+ "t=",
+ StyleBox["a^3",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.527579306603093*^9, 3.527579344315592*^9}, {
+  3.527590955917544*^9, 3.52759095613428*^9}, {3.527591076555743*^9, 
+  3.527591124089627*^9}},
+ FontSize->16,
+ FontSlant->"Italic"],
+
+Cell[TextData[{
+ "(vi) \tx +y-z=2\n\t",
+ StyleBox["a",
+  FontWeight->"Bold"],
+ "x+y+z=1\n\tx-y+3z=-3\n\t4x+2y=",
+ StyleBox["a",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.527579306603093*^9, 3.527579344315592*^9}, 
+   3.527591032816381*^9, {3.527591136805944*^9, 3.527591164189771*^9}},
+ FontSize->16,
+ FontSlant->"Italic"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1272, 918},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+ShowSelection->True,
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (August 26, \
+2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 608, 13, 157, "Section"],
+Cell[CellGroupData[{
+Cell[1212, 39, 234, 4, 36, "Subsection"],
+Cell[1449, 45, 1911, 53, 191, "Text"],
+Cell[3363, 100, 105, 2, 31, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3505, 107, 421, 7, 36, "Subsection"],
+Cell[3929, 116, 2126, 67, 185, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6092, 188, 264, 5, 36, "Subsection"],
+Cell[6359, 195, 616, 9, 30, "Text"],
+Cell[6978, 206, 523, 14, 31, "Input"],
+Cell[7504, 222, 781, 18, 30, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8322, 245, 367, 6, 36, "Subsection"],
+Cell[8692, 253, 248, 4, 30, "Text"],
+Cell[8943, 259, 467, 14, 31, "Input"],
+Cell[9413, 275, 414, 13, 31, "Input"],
+Cell[9830, 290, 676, 26, 35, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10543, 321, 411, 7, 36, "Subsection"],
+Cell[10957, 330, 529, 8, 30, "Text"],
+Cell[11489, 340, 361, 11, 31, "Input"],
+Cell[11853, 353, 587, 13, 30, "Text"],
+Cell[12443, 368, 312, 10, 30, "Text"],
+Cell[12758, 380, 335, 5, 30, "Text"],
+Cell[13096, 387, 283, 9, 31, "Input"],
+Cell[13382, 398, 409, 13, 30, "Text"],
+Cell[13794, 413, 973, 39, 71, "Text"],
+Cell[14770, 454, 1724, 65, 128, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16531, 524, 402, 7, 36, "Subsection"],
+Cell[16936, 533, 437, 18, 30, "Text"],
+Cell[17376, 553, 258, 11, 68, "Text"],
+Cell[17637, 566, 307, 12, 68, "Text"],
+Cell[17947, 580, 349, 15, 68, "Text"],
+Cell[18299, 597, 501, 24, 68, "Text"],
+Cell[18803, 623, 583, 27, 87, "Text"],
+Cell[19389, 652, 336, 11, 87, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

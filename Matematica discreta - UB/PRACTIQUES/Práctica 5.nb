@@ -1,0 +1,498 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     14424,        489]
+NotebookOptionsPosition[     11528,        387]
+NotebookOutlinePosition[     12030,        407]
+CellTagsIndexPosition[     11987,        404]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["Pr\[AGrave]ctica 5: Combinat\[OGrave]ria ", "Title",
+ CellChangeTimes->{{3.5407109621367188`*^9, 3.5407109627509766`*^9}, {
+  3.5413913467197266`*^9, 3.541391346879883*^9}, {3.5741458973818703`*^9, 
+  3.5741458978037453`*^9}},
+ TextAlignment->Center],
+
+Cell[TextData[{
+ "En aquesta pr\[AGrave]ctica s'introdueixen les nocions b\[AGrave]siques de \
+la combinat\[OGrave]ria. Resoldrem uns quants exercicis elementals i \
+utilitzarem ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " per comprovar-ne els resultats."
+}], "Text"],
+
+Cell["Exercici 1:", "Subsubsection"],
+
+Cell["\<\
+Quants m\[UAcute]ltiples de 5 hi ha entre 1 i 5000? I m\[UAcute]ltiples de 3? 
+Usant el principi d'inclusi\[OAcute]-exclusi\[OAcute], dedu\[IDoubleDot]u \
+quants nombres entre 1 i 5000 no s\[OAcute]n m\[UAcute]ltiples de 5 ni de 3. \
+Genereu una llista amb aquests nombres per comprovar el vostre resultat.\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"A", "=", 
+  RowBox[{"N", "[", 
+   RowBox[{"5000", "/", "5"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5741461779443703`*^9, 3.5741461963506203`*^9}, {
+  3.5741462751318703`*^9, 3.5741462760068703`*^9}}],
+
+Cell[BoxData["1000.`"], "Output",
+ CellChangeTimes->{{3.5741461855068703`*^9, 3.5741461967099953`*^9}, 
+   3.5741462767099953`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"B", "=", 
+  RowBox[{"N", "[", 
+   RowBox[{"5000", "/", "3"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5741461867412453`*^9, 3.5741461939756203`*^9}, {
+  3.5741462789287453`*^9, 3.5741462801943703`*^9}}],
+
+Cell[BoxData["1666.6666666666667`"], "Output",
+ CellChangeTimes->{3.5741461948193703`*^9, 3.5741462806474953`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"T", "=", 
+  RowBox[{"5000", "-", 
+   RowBox[{"(", 
+    RowBox[{"A", "+", "B", "-", 
+     RowBox[{"N", "[", 
+      RowBox[{"5000", "/", "15"}], "]"}]}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.5741462364443703`*^9, 3.5741462485537453`*^9}, {
+  3.5741462848037453`*^9, 3.5741463055849953`*^9}, {3.5741463403506203`*^9, 
+  3.5741463487412453`*^9}}],
+
+Cell[BoxData["2666.6666666666665`"], "Output",
+ CellChangeTimes->{{3.5741462392881203`*^9, 3.5741462556787453`*^9}, {
+   3.5741462997724953`*^9, 3.5741463071318703`*^9}, 3.5741463492724953`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", "}"}]}], ";", 
+  RowBox[{"i", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"While", "[", 
+   RowBox[{
+    RowBox[{"i", "\[LessEqual]", "5000"}], ",", " ", 
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"Mod", "[", 
+          RowBox[{"i", ",", "5"}], "]"}], "\[NotEqual]", "0"}], "&&", 
+        RowBox[{
+         RowBox[{"Mod", "[", 
+          RowBox[{"i", ",", "3"}], "]"}], "\[NotEqual]", "0"}]}], ",", 
+       RowBox[{"L", "=", 
+        RowBox[{"Append", "[", 
+         RowBox[{"L", ",", "i"}], "]"}]}]}], "]"}], ";", 
+     RowBox[{"i", "++"}]}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Length", "[", "L", "]"}]}], "Input",
+ CellChangeTimes->{{3.5741463859912453`*^9, 3.5741466116474953`*^9}, {
+  3.5741467329131203`*^9, 3.5741467587256203`*^9}}],
+
+Cell[BoxData["2667"], "Output",
+ CellChangeTimes->{3.5741471015537453`*^9}]
+}, Open  ]],
+
+Cell["Exercici 2:", "Subsubsection"],
+
+Cell["\<\
+Quants passwords diferents de 6 car\[AGrave]cters es poden generar amb els 10 \
+d\[IAcute]gits i les 26 lletres de l'alfabet internacional?\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"36", "^", "6"}]], "Input",
+ CellChangeTimes->{{3.5741467759756203`*^9, 3.5741467928818703`*^9}, {
+  3.5741470242099953`*^9, 3.5741470246943703`*^9}}],
+
+Cell[BoxData["2176782336"], "Output",
+ CellChangeTimes->{{3.5741470912568703`*^9, 3.5741471174756203`*^9}, 
+   3.5741476925849953`*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Quina longitud hauria de tenir un password per qu\[EGrave] hi hagi m\
+\[EAcute]s de 6.022 \[Cross] ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["10", "23"], TraditionalForm]]],
+ " possibilitats?"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"k", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"While", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"36", "^", "k"}], "<", 
+     RowBox[{"6022", "*", 
+      RowBox[{"(", 
+       RowBox[{"10", "^", "23"}], ")"}]}]}], ",", 
+    RowBox[{"k", "++"}]}], "]"}], ";", "k"}]}], "Input",
+ CellChangeTimes->{{3.5741469280224953`*^9, 3.5741469766943703`*^9}, {
+  3.5741470782412453`*^9, 3.5741471685693703`*^9}, {3.5741473357412453`*^9, 
+  3.5741473520537453`*^9}, {3.57414785163201*^9, 3.5741478516632605`*^9}}],
+
+Cell[BoxData["18"], "Output",
+ CellChangeTimes->{{3.5741470978974953`*^9, 3.5741471690224953`*^9}, 
+   3.5741473528974953`*^9, 3.5741478521163883`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"36", "^", "18"}], ">", 
+  RowBox[{"6022", "*", 
+   RowBox[{"(", 
+    RowBox[{"10", "^", "23"}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.5741478213818703`*^9, 3.574147842897579*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{{3.574147832256886*^9, 3.574147843647584*^9}}]
+}, Open  ]],
+
+Cell["Exercici 3:", "Subsubsection"],
+
+Cell["Considerem el conjunt seg\[UDoubleDot]ent:", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"L", "=", 
+  RowBox[{"{", 
+   RowBox[{"a", ",", "b", ",", "c", ",", "d", ",", "e", ",", "f"}], 
+   "}"}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"a", ",", "b", ",", "c", ",", "d", ",", "e", ",", "f"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.5741473091943703`*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Expliqueu com generar sistem\[AGrave]ticament una llista amb totes les \
+seleccions ordenades de tres elements diferents de L,\nfeu servir \
+Permutations[] del paque ",
+ StyleBox["Combinatorica",
+  FontSlant->"Italic"],
+ ".\nQuants elements tindr\[AGrave] la llista?"
+}], "Text",
+ CellChangeTimes->{{3.5407123080927734`*^9, 3.540712345845703*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"6", "*", "5", "*", "4"}]], "Input",
+ CellChangeTimes->{{3.5741472685849953`*^9, 3.5741472713037453`*^9}}],
+
+Cell[BoxData["120"], "Output",
+ CellChangeTimes->{3.5741472716943703`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"L1", "=", 
+   RowBox[{"Permutations", "[", 
+    RowBox[{"L", ",", 
+     RowBox[{"{", "3", "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Length", "[", "L1", "]"}]}], "Input",
+ CellChangeTimes->{{3.5741472789912453`*^9, 3.5741472968974953`*^9}}],
+
+Cell[BoxData["120"], "Output",
+ CellChangeTimes->{{3.5741472977881203`*^9, 3.5741473107881203`*^9}}]
+}, Open  ]],
+
+Cell["Quants nombres entre 0 i 9999 no tenen cap xifra repetida? ", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"10", "*", "9", "*", "8", "*", "7"}]], "Input",
+ CellChangeTimes->{{3.5741474334599953`*^9, 3.5741474448037453`*^9}}],
+
+Cell[BoxData["5040"], "Output",
+ CellChangeTimes->{3.5741474453818703`*^9}]
+}, Open  ]],
+
+Cell["Exercici 4:", "Subsubsection"],
+
+Cell[TextData[{
+ "De quantes maneres podem dividir una classe de 40 alumnes en dos grups de \
+problemes de 20 alumnes cadascun?\nCalculeu el coeficient de ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["x", "20"], TraditionalForm]]],
+ " en ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"1", "+", "x"}], ")"}], "40"], TraditionalForm]]],
+ " sense desenvolupar el binomi i despr\[EAcute]s comproveu el resultat \
+executant la instrucci\[OAcute] seg\[UDoubleDot]ent:"
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{"Expand", "[", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"1", "+", "x"}], ")"}], "^", "40"}], "]"}]], "Input",
+ CellChangeTimes->{{3.574147883350963*^9, 3.574147883991592*^9}}],
+
+Cell["Exercici 5:", "Subsubsection"],
+
+Cell[TextData[{
+ "Amb la funci\[OAcute] ",
+ StyleBox["Permutations", "Output"],
+ ", compteu quantes paraules diferents es poden formar amb les lletres de la \
+paraula 'EXCLUSIO'. Feu el mateix amb les lletres de la paraula 'INCLUSIO'. \
+Qu\[EGrave] observeu? "
+}], "Text"],
+
+Cell["\<\
+Feu el mateix per la paraula 'PRINCIPI'. Compareu el resultat amb els dos \
+anteriors.
+Intenteu inferir una relaci\[OAcute] entre el nombre de lletres repetides i \
+el nombre de permutacions.\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"A", "=", 
+   RowBox[{"Permutations", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<E\>\"", ",", "\"\<X\>\"", ",", "\"\<C\>\"", ",", "\"\<L\>\"", ",", 
+      "\"\<U\>\"", ",", "\"\<S\>\"", ",", "\"\<I\>\"", ",", "\"\<O\>\""}], 
+     "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Length", "[", "A", "]"}]}], "Input",
+ CellChangeTimes->{{3.574147985070364*^9, 3.5741481155711994`*^9}}],
+
+Cell[BoxData["40320"], "Output",
+ CellChangeTimes->{3.5741481158680763`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Factorial", "[", "8", "]"}]], "Input",
+ CellChangeTimes->{{3.5741482755253477`*^9, 3.5741482794316225`*^9}}],
+
+Cell[BoxData["40320"], "Output",
+ CellChangeTimes->{3.5741482796659994`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"B", "=", 
+   RowBox[{"Permutations", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<I\>\"", ",", "\"\<N\>\"", ",", "\"\<C\>\"", ",", "\"\<L\>\"", ",", 
+      "\"\<U\>\"", ",", "\"\<S\>\"", ",", "\"\<I\>\"", ",", "\"\<O\>\""}], 
+     "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Length", "[", "B", "]"}]}], "Input",
+ CellChangeTimes->{{3.5741481306337957`*^9, 3.5741481668996525`*^9}, {
+  3.57414827347846*^9, 3.57414827427534*^9}}],
+
+Cell[BoxData["20160"], "Output",
+ CellChangeTimes->{{3.574148159212104*^9, 3.5741481671340294`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Factorial", "[", "8", "]"}], "/", 
+  RowBox[{"Factorial", "[", "2", "]"}]}]], "Input",
+ CellChangeTimes->{{3.57414828132226*^9, 3.574148291197323*^9}}],
+
+Cell[BoxData["20160"], "Output",
+ CellChangeTimes->{3.5741482915254507`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"P", "=", 
+   RowBox[{"Permutations", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<P\>\"", ",", "\"\<R\>\"", ",", "\"\<I\>\"", ",", "\"\<N\>\"", ",", 
+      "\"\<C\>\"", ",", "\"\<I\>\"", ",", "\"\<P\>\"", ",", "\"\<I\>\""}], 
+     "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Length", "[", "P", "]"}]}], "Input",
+ CellChangeTimes->{{3.57414817191531*^9, 3.5741482184937325`*^9}}],
+
+Cell[BoxData["3360"], "Output",
+ CellChangeTimes->{3.5741482190718613`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Factorial", "[", "8", "]"}], "/", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"Factorial", "[", "3", "]"}], "*", 
+    RowBox[{"Factorial", "[", "2", "]"}]}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.574148293572338*^9, 3.574148347385183*^9}}],
+
+Cell[BoxData["3360"], "Output",
+ CellChangeTimes->{{3.5741483025880213`*^9, 3.5741483478695607`*^9}}]
+}, Open  ]]
+},
+ScreenStyleEnvironment->"Presentation",
+CellGrouping->Manual,
+WindowSize->{1276, 911},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{Automatic, Automatic},
+Magnification->0.8999999761581421,
+FrontEndVersion->"8.0 for Microsoft Windows (32-bit) (November 7, 2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 256, 4, 130, "Title"],
+Cell[816, 26, 277, 7, 72, "Text"],
+Cell[1096, 35, 36, 0, 41, "Subsubsection"],
+Cell[1135, 37, 330, 5, 96, "Text"],
+Cell[CellGroupData[{
+Cell[1490, 46, 227, 5, 45, "Input"],
+Cell[1720, 53, 131, 2, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1888, 60, 227, 5, 45, "Input"],
+Cell[2118, 67, 114, 1, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2269, 73, 372, 9, 45, "Input"],
+Cell[2644, 84, 194, 2, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2875, 91, 895, 25, 110, "Input"],
+Cell[3773, 118, 75, 1, 44, "Output"]
+}, Open  ]],
+Cell[3863, 122, 36, 0, 41, "Subsubsection"],
+Cell[3902, 124, 163, 3, 37, "Text"],
+Cell[CellGroupData[{
+Cell[4090, 131, 173, 3, 45, "Input"],
+Cell[4266, 136, 135, 2, 44, "Output"]
+}, Open  ]],
+Cell[4416, 141, 227, 7, 42, "Text"],
+Cell[CellGroupData[{
+Cell[4668, 152, 557, 14, 78, "Input"],
+Cell[5228, 168, 151, 2, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5416, 175, 219, 6, 45, "Input"],
+Cell[5638, 183, 97, 1, 44, "Output"]
+}, Open  ]],
+Cell[5750, 187, 36, 0, 41, "Subsubsection"],
+Cell[5789, 189, 58, 0, 37, "Text"],
+Cell[CellGroupData[{
+Cell[5872, 193, 140, 4, 45, "Input"],
+Cell[6015, 199, 160, 4, 44, "Output"]
+}, Open  ]],
+Cell[6190, 206, 365, 8, 101, "Text"],
+Cell[CellGroupData[{
+Cell[6580, 218, 129, 2, 45, "Input"],
+Cell[6712, 222, 74, 1, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6823, 228, 292, 7, 78, "Input"],
+Cell[7118, 237, 100, 1, 44, "Output"]
+}, Open  ]],
+Cell[7233, 241, 75, 0, 42, "Text"],
+Cell[CellGroupData[{
+Cell[7333, 245, 140, 2, 45, "Input"],
+Cell[7476, 249, 75, 1, 44, "Output"]
+}, Open  ]],
+Cell[7566, 253, 36, 0, 41, "Subsubsection"],
+Cell[7605, 255, 509, 14, 96, "Text"],
+Cell[8117, 271, 198, 5, 45, "Input"],
+Cell[8318, 278, 36, 0, 41, "Subsubsection"],
+Cell[8357, 280, 272, 6, 68, "Text"],
+Cell[8632, 288, 215, 5, 72, "Text"],
+Cell[CellGroupData[{
+Cell[8872, 297, 431, 10, 78, "Input"],
+Cell[9306, 309, 76, 1, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9419, 315, 132, 2, 45, "Input"],
+Cell[9554, 319, 76, 1, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9667, 325, 480, 11, 78, "Input"],
+Cell[10150, 338, 100, 1, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10287, 344, 186, 4, 45, "Input"],
+Cell[10476, 350, 76, 1, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10589, 356, 430, 10, 78, "Input"],
+Cell[11022, 368, 75, 1, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11134, 374, 274, 7, 45, "Input"],
+Cell[11411, 383, 101, 1, 44, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

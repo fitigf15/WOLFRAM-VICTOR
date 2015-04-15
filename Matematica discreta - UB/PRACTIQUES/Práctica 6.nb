@@ -1,0 +1,737 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     23089,        728]
+NotebookOptionsPosition[     19158,        592]
+NotebookOutlinePosition[     19687,        613]
+CellTagsIndexPosition[     19644,        610]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Pr\[AGrave]ctica 6: Probabilitats ", "Title",
+ CellChangeTimes->{{3.5747499987336864`*^9, 3.5747499992649364`*^9}},
+ TextAlignment->Center],
+
+Cell["\<\
+En aquesta pr\[AGrave]ctica utilitzem les t\[EGrave]cniques apreses de \
+combinat\[OGrave]ria per a resoldre alguns problemes de probabilitats.\
+\>", "Text",
+ CellChangeTimes->{3.5419216954033203`*^9, 3.541921742178711*^9, 
+  3.5419222894335938`*^9}],
+
+Cell["Exercici 1 :", "Subsubsection",
+ CellChangeTimes->{{3.5419213568271484`*^9, 3.541921357296875*^9}, 
+   3.5419214208691406`*^9, {3.5419214862148438`*^9, 3.541921486392578*^9}, {
+   3.5419222797382812`*^9, 3.5419222816083984`*^9}}],
+
+Cell["\<\
+Amb la funci\[OAcute] Permutations[] , compteu quantes paraules diferents es \
+poden formar amb les lletres de la paraula' EXCLUSIO'.
+Feu el mateix amb les lletres de la paraula' INCLUSIO'.Qu\[EGrave] observeu?
+Feu el mateix per la paraula' PRINCIPI'.Compareu el resultat amb els dos \
+anteriors.Intenteu inferir una relaci\[OAcute] entre el nombre de lletres \
+repetides i el nombre de permutacions.\
+\>", "Text",
+ CellChangeTimes->{{3.5419213568271484`*^9, 3.541921357296875*^9}, 
+   3.5419214208691406`*^9, {3.5419214960927734`*^9, 3.541921531770508*^9}, {
+   3.541921705076172*^9, 3.5419217256992188`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"lta", "=", 
+  RowBox[{"{", 
+   RowBox[{
+   "e", ",", " ", "x", ",", " ", "c", ",", " ", "l", ",", " ", "u", ",", " ", 
+    "s", ",", " ", "i", ",", " ", "\[OAcute]"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.5747504504993114`*^9, 3.5747504649836864`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "e", ",", "x", ",", "c", ",", "l", ",", "u", ",", "s", ",", "i", ",", 
+   "\[OAcute]"}], "}"}]], "Output",
+ CellChangeTimes->{3.5747504659993114`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"A", "=", 
+   RowBox[{"Permutations", "[", "lta", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Length", "[", "A", "]"}]}], "Input",
+ CellChangeTimes->{{3.5747504680461864`*^9, 3.5747504937493114`*^9}}],
+
+Cell[BoxData["40320"], "Output",
+ CellChangeTimes->{{3.5747504798118114`*^9, 3.5747504940305614`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"m", "=", 
+  RowBox[{"Length", "[", "lta", "]"}]}]], "Input",
+ CellChangeTimes->{{3.5747505052961864`*^9, 3.5747505136243114`*^9}}],
+
+Cell[BoxData["8"], "Output",
+ CellChangeTimes->{3.5747505141086864`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Factorial", "[", "m", "]"}], "\[Equal]", 
+  RowBox[{"Length", "[", "A", "]"}]}]], "Input",
+ CellChangeTimes->{{3.5747504956086864`*^9, 3.5747505023274364`*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{{3.5747505029211864`*^9, 3.5747505193118114`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"lta2", "=", 
+  RowBox[{"{", 
+   RowBox[{
+   "i", ",", "n", ",", "c", ",", "l", ",", "u", ",", "s", ",", "i", ",", 
+    "\[OAcute]"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.5747505240305614`*^9, 3.5747505409993114`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "i", ",", "n", ",", "c", ",", "l", ",", "u", ",", "s", ",", "i", ",", 
+   "\[OAcute]"}], "}"}]], "Output",
+ CellChangeTimes->{3.5747505427649364`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"m", "=", 
+  RowBox[{"Length", "[", "lta2", "]"}]}]], "Input",
+ CellChangeTimes->{{3.5747505450930614`*^9, 3.5747505496399364`*^9}}],
+
+Cell[BoxData["8"], "Output",
+ CellChangeTimes->{3.5747505502649364`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"B", "=", 
+   RowBox[{"Permutations", "[", "lta2", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Length", "[", "B", "]"}]}], "Input",
+ CellChangeTimes->{{3.5747505537493114`*^9, 3.5747505816399364`*^9}}],
+
+Cell[BoxData["20160"], "Output",
+ CellChangeTimes->{3.5747505821086864`*^9}]
+}, Open  ]],
+
+Cell["Variacions amb repetici\[OAcute]", "Subsection"],
+
+Cell[TextData[{
+ "La funci\[OAcute] seg\[UDoubleDot]ent genera ",
+ StyleBox["r",
+  FontSlant->"Italic"],
+ " nombres aleatoris entre 1 i ",
+ StyleBox["n",
+  FontSlant->"Italic"],
+ ". El resultat pot estar ordenat de qualsevol forma i pot haver-hi \
+repeticions. Per tant, el conjunt de resultats possibles \[EAcute]s ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["n", "r"], "(", 
+     RowBox[{"variacions", " ", "amb", " ", "repetici\[OAcute]"}], ")"}], 
+    "."}], TraditionalForm]]]
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"VR", "[", 
+   RowBox[{"n_Integer", ",", "r_Integer"}], "]"}], ":=", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"Random", "[", 
+     RowBox[{"Integer", ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "n"}], "}"}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "r"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{3.415446851565077*^9}],
+
+Cell["\<\
+Per exemple, quatre tirades successives d'un dau podrien donar com a resultat\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"VR", "[", 
+  RowBox[{"6", ",", "4"}], "]"}]], "Input",
+ CellChangeTimes->{3.415446856330702*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"3", ",", "4", ",", "5", ",", "4"}], "}"}]], "Output",
+ CellChangeTimes->{{3.5747506700618114`*^9, 3.5747506745930614`*^9}}]
+}, Open  ]],
+
+Cell["Exercici 2:", "Subsubsection",
+ CellChangeTimes->{{3.541921752705078*^9, 3.541921752897461*^9}}],
+
+Cell["\<\
+Un fam\[OAcute]s jugador opinava que les apostes \"treure almenys un 6 al \
+tirar 4 cops un dau\" i \"treure almenys un doble 6 al tirar 24 cops dos daus\
+\" havien de tenir la mateixa probabilitat. Calculeu la probabilitat de cada \
+aposta. Tenia ra\[OAcute] el jugador?\
+\>", "Text"],
+
+Cell["\<\
+Les instruccions seg\[UDoubleDot]ents simulen 1000 tirades de 4 daus i \
+compten la freq\[UDoubleDot]\[EGrave]ncia de guanys de l'aposta treure \
+almenys un 6. Concorda aix\[OGrave] amb els vostres c\[AGrave]lculs?\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"VR", "[", 
+      RowBox[{"6", ",", "4"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", "1000"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"N", "[", 
+  RowBox[{
+   RowBox[{"Length", "[", 
+    RowBox[{"Select", "[", 
+     RowBox[{"L", ",", 
+      RowBox[{
+       RowBox[{"MemberQ", "[", 
+        RowBox[{"#", ",", "6"}], "]"}], "&"}]}], "]"}], "]"}], "/", "1000"}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.411729252984375*^9, 3.411729275625*^9}, 
+   3.411729442375*^9, {3.415426078877577*^9, 3.415426080299452*^9}, 
+   3.415446882268202*^9}],
+
+Cell[BoxData["0.516`"], "Output",
+ CellChangeTimes->{
+  3.5747510171086864`*^9, {3.5747511994055614`*^9, 3.5747512185461864`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"p", "=", 
+  RowBox[{"1", "-", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"5", "/", "6"}], ")"}], "^", "4"}]}]}]], "Input",
+ CellChangeTimes->{{3.5747512517336864`*^9, 3.5747512569368114`*^9}}],
+
+Cell[BoxData[
+ FractionBox["671", "1296"]], "Output",
+ CellChangeTimes->{3.5747512573743114`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"N", "[", "p", "]"}]], "Input",
+ CellChangeTimes->{{3.5747512585461864`*^9, 3.5747512623743114`*^9}}],
+
+Cell[BoxData["0.5177469135802469`"], "Output",
+ CellChangeTimes->{3.5747512624836864`*^9}]
+}, Open  ]],
+
+Cell["\<\
+Les instruccions seg\[UDoubleDot]ents simulen 1000 tirades de 24 parells de \
+daus i compten la freq\[UDoubleDot]\[EGrave]ncia de guanys de l'aposta treure \
+almenys un doble 6. Concorda aix\[OGrave] amb els vostres c\[AGrave]lculs?\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"M", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"VR", "[", 
+        RowBox[{"6", ",", "2"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "24"}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", "1000"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"N", "[", 
+  RowBox[{
+   RowBox[{"Length", "[", 
+    RowBox[{"Select", "[", 
+     RowBox[{"M", ",", 
+      RowBox[{
+       RowBox[{"MemberQ", "[", 
+        RowBox[{"#", ",", 
+         RowBox[{"{", 
+          RowBox[{"6", ",", "6"}], "}"}]}], "]"}], "&"}]}], "]"}], "]"}], "/",
+    "1000"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.411729261546875*^9, 3.41172927053125*^9}, 
+   3.415446884674452*^9}],
+
+Cell[BoxData["0.489`"], "Output",
+ CellChangeTimes->{
+  3.5747510189993114`*^9, {3.5747512032180614`*^9, 3.5747512051086864`*^9}, {
+   3.5747513012805614`*^9, 3.5747513101086864`*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"p1", "=", 
+  RowBox[{"1", "-", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"35", "/", "36"}], ")"}], "^", "24"}]}]}]], "Input",
+ CellChangeTimes->{{3.5747511175305614`*^9, 3.5747511176868114`*^9}, {
+  3.5747512772961864`*^9, 3.5747512879368114`*^9}}],
+
+Cell[BoxData[
+ FractionBox["11033126465283976852912127963392284191", 
+  "22452257707354557240087211123792674816"]], "Output",
+ CellChangeTimes->{3.5747512905930614`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"N", "[", "p1", "]"}]], "Input",
+ CellChangeTimes->{{3.5747512930930614`*^9, 3.5747512950930614`*^9}}],
+
+Cell[BoxData["0.49140387613090325`"], "Output",
+ CellChangeTimes->{3.5747512955461864`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"El", " ", "jugador", " ", "no", " ", "tiene", " ", "razon"}], ",", 
+  " ", 
+  RowBox[{
+  "es", " ", "m\[AAcute]s", " ", "probable", " ", "lo", " ", "primero", " ", 
+   "que", " ", "lo", " ", 
+   RowBox[{"segundo", "."}]}]}]], "Input",
+ CellChangeTimes->{{3.5747513354211864`*^9, 3.5747513483586864`*^9}}],
+
+Cell[BoxData[Cell["Exercici 3:", "Subsubsection"]], "Subsubsection",
+ CellChangeTimes->{{3.5419221140410156`*^9, 3.5419221428320312`*^9}, {
+  3.541922186635742*^9, 3.5419221867802734`*^9}, {3.541922270442383*^9, 
+  3.5419222731777344`*^9}}],
+
+Cell[BoxData[Cell["\<\
+a) De quantes maneres podem dividir els alumnes d'una classe de 100 \
+estudiants en dos grups de 50 alumnes cadascun?
+b) Si dels 1000 estudiants n'hi ha dos que s\[OAcute]n germans, de quantes \
+maneres podem fer la divisi\[OAcute] de grups per tal de separar aquests \
+germans?\
+\>", "Text",
+  FontFamily->"Times New Roman"]], "Text",
+ CellChangeTimes->{{3.541922146745117*^9, 3.5419221535058594`*^9}, 
+   3.5419221945166016`*^9, 3.541922353984375*^9, 3.5419224005683594`*^9, {
+   3.5747522351711864`*^9, 3.5747522368586864`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"n", "=", 
+  RowBox[{"Binomial", "[", 
+   RowBox[{"100", ",", "50"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5747519544368114`*^9, 3.5747519594993114`*^9}, {
+  3.5747522324993114`*^9, 3.5747522386086864`*^9}}],
+
+Cell[BoxData["100891344545564193334812497256"], "Output",
+ CellChangeTimes->{
+  3.5747519597336864`*^9, {3.5747522337961864`*^9, 3.5747522392180614`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Combinaciones", " ", "de", " ", "100", " ", "estudiantes"}], ",", 
+  " ", 
+  RowBox[{"cogidos", " ", "de", " ", "50", " ", "en", " ", "50."}]}]], "Input",
+ CellChangeTimes->{{3.5747522188743114`*^9, 3.5747522500149364`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"m", "=", 
+  RowBox[{"Binomial", "[", 
+   RowBox[{"98", ",", "49"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5747520744993114`*^9, 3.5747520963430614`*^9}, {
+  3.5747521310618114`*^9, 3.5747521311086864`*^9}}],
+
+Cell[BoxData["25477612258980856902730428600"], "Output",
+ CellChangeTimes->{3.5747520974524364`*^9, 3.5747521331399364`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "Hago", " ", "combinaciones", " ", "de", " ", "98", " ", "estudiantes"}], 
+  ",", " ", 
+  RowBox[{
+  "cogidos", " ", "de", " ", "49", " ", "en", " ", "49.", " ", "Separo", " ", 
+   "a", " ", "los", " ", "hermanos", " ", 
+   RowBox[{"aparte", "."}]}]}]], "Input",
+ CellChangeTimes->{{3.5747521679368114`*^9, 3.5747521937024364`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"m", "/", "n"}]], "Input",
+ CellChangeTimes->{{3.5747521038743114`*^9, 3.5747521470461864`*^9}, {
+  3.5747522718743114`*^9, 3.5747522729993114`*^9}}],
+
+Cell[BoxData[
+ FractionBox["25", "99"]], "Output",
+ CellChangeTimes->{{3.5747521061868114`*^9, 3.5747521474836864`*^9}, 
+   3.5747522735930614`*^9}]
+}, Open  ]],
+
+Cell["Exercici 4 :", "Subsubsection",
+ CellChangeTimes->{{3.5419221662304688`*^9, 3.5419221669882812`*^9}, {
+  3.541922201692383*^9, 3.541922205913086*^9}, {3.5419222594501953`*^9, 
+  3.541922263176758*^9}, {3.5419222953203125`*^9, 3.5419222955439453`*^9}}],
+
+Cell["\<\
+Quina longitud tindria la llista generada per la instrucci\[OAcute] seg\
+\[UDoubleDot]ent, si l' ordinador tingu\[EAcute]s prou capacitat per executar \
+- la?\
+\>", "Text",
+ CellChangeTimes->{{3.5419221662304688`*^9, 3.5419221669882812`*^9}, {
+   3.541922201692383*^9, 3.541922213649414*^9}, 3.541922322416992*^9}],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", "n", "]"}]], "Input",
+ CellChangeTimes->{{3.5747525276711864`*^9, 3.5747525308274364`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Permutations", "[", 
+  RowBox[{"{", 
+   RowBox[{
+   "i", ",", "i", ",", "i", ",", "n", ",", "n", ",", "n", ",", "c", ",", "c", 
+    ",", "c", ",", "l", ",", "l", ",", "l", ",", "u", ",", "u", ",", "u", ",",
+     "s", ",", "s", ",", "s", ",", "i", ",", "i", ",", "i", ",", "o", ",", 
+    "o", ",", "o"}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.5419221662304688`*^9, 3.5419221669882812`*^9}, {
+  3.541922201692383*^9, 3.5419222193847656`*^9}, {3.5747523208743114`*^9, 
+  3.5747523261555614`*^9}, {3.5747525224680614`*^9, 3.5747525264368114`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Permutations", "::", "len"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(Permutations[\\(\\({i, i, i, n, n, n, c, \
+c, c, l, l, l, u, u, u, s, s, s, i, i, i, o, o, o}\\)\\)]\\)\[NoBreak] cannot \
+be computed because its length is \[NoBreak]\\!\\(18469947944448000\\)\
+\[NoBreak], which is not a machine integer. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Permutations\\\", ButtonNote -> \
+\\\"Permutations::len\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{{3.5747523080930614`*^9, 3.5747523283118114`*^9}, 
+   3.5747525328118114`*^9}],
+
+Cell[BoxData[
+ RowBox[{"Permutations", "[", 
+  RowBox[{"{", 
+   RowBox[{
+   "i", ",", "i", ",", "i", ",", "n", ",", "n", ",", "n", ",", "c", ",", "c", 
+    ",", "c", ",", "l", ",", "l", ",", "l", ",", "u", ",", "u", ",", "u", ",",
+     "s", ",", "s", ",", "s", ",", "i", ",", "i", ",", "i", ",", "o", ",", 
+    "o", ",", "o"}], "}"}], "]"}]], "Output",
+ CellChangeTimes->{{3.5747523080930614`*^9, 3.5747523283118114`*^9}, 
+   3.5747525328118114`*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.5747525087961864`*^9, 3.5747525090305614`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"lta", "=", 
+  RowBox[{"{", 
+   RowBox[{
+   "i", ",", "i", ",", "i", ",", "n", ",", "n", ",", "n", ",", "c", ",", "c", 
+    ",", "c", ",", "l", ",", "l", ",", "l", ",", "u", ",", "u", ",", "u", ",",
+     "s", ",", "s", ",", "s", ",", "i", ",", "i", ",", "i", ",", "o", ",", 
+    "o", ",", "o"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.5747523897024364`*^9, 3.5747524032493114`*^9}, {
+  3.5747525358430614`*^9, 3.5747525400930614`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "i", ",", "i", ",", "i", ",", "n", ",", "n", ",", "n", ",", "c", ",", "c", 
+   ",", "c", ",", "l", ",", "l", ",", "l", ",", "u", ",", "u", ",", "u", ",", 
+   "s", ",", "s", ",", "s", ",", "i", ",", "i", ",", "i", ",", "o", ",", "o", 
+   ",", "o"}], "}"}]], "Output",
+ CellChangeTimes->{3.5747524039993114`*^9, 3.5747525407024364`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"x", "=", 
+  RowBox[{"Union", "[", "lta", "]"}]}]], "Input",
+ CellChangeTimes->{{3.5747524054680614`*^9, 3.5747524104524364`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"c", ",", "i", ",", "l", ",", "n", ",", "o", ",", "s", ",", "u"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.5747524107805614`*^9, {3.5747525415618114`*^9, 3.5747525443118114`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Factorial", "[", 
+   RowBox[{"Length", "[", "lta", "]"}], "]"}], "/", 
+  RowBox[{"Product", "[", 
+   RowBox[{
+    RowBox[{"Factorial", "[", 
+     RowBox[{"Count", "[", 
+      RowBox[{"lta", ",", " ", 
+       RowBox[{"x", "[", 
+        RowBox[{"[", "i", "]"}], "]"}]}], "]"}], "]"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", 
+      RowBox[{"Length", "[", "x", "]"}]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5747524146555614`*^9, 3.5747524908118114`*^9}}],
+
+Cell[BoxData["18469947944448000"], "Output",
+ CellChangeTimes->{3.5747524913118114`*^9, 3.5747525453899364`*^9}]
+}, Open  ]],
+
+Cell["Exercici 5 :", "Subsubsection",
+ CellChangeTimes->{{3.5419221662304688`*^9, 3.5419221669882812`*^9}, {
+   3.541922201692383*^9, 3.541922226040039*^9}, 3.541922259451172*^9, {
+   3.541922298776367*^9, 3.541922299080078*^9}}],
+
+Cell["\<\
+La baralla francesa cont\[EAcute] 4 pals (piques, cors, trebols i diamants) i \
+13 cartes a cada pal.Despr\[EAcute]s de barrejar una baralla francesa, prenem \
+les tres primeres cartes.Quina \[EAcute]s la probabilitat d' obtenir almenys \
+un as?\
+\>", "Text",
+ CellChangeTimes->{{3.5419221662304688`*^9, 3.5419221669882812`*^9}, {
+   3.541922201692383*^9, 3.541922234833008*^9}, 3.5419223224179688`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"1", "-", 
+  RowBox[{"N", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"48", "*", "47", "*", "46", "*", 
+      RowBox[{"Factorial", "[", "49", "]"}]}], ")"}], "/", 
+    RowBox[{"Factorial", "[", "52", "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5747532059055614`*^9, 3.5747532388743114`*^9}}],
+
+Cell[BoxData["0.2173755656108597`"], "Output",
+ CellChangeTimes->{{3.5747532269524364`*^9, 3.5747532397336864`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"1", "-", 
+  RowBox[{"N", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"48", "*", "47", "*", "46"}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"52", "*", "51", "*", "50"}], ")"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5747530276243114`*^9, 3.5747530736086864`*^9}, {
+  3.5747532479368114`*^9, 3.5747532618586864`*^9}}],
+
+Cell[BoxData["0.2173755656108597`"], "Output",
+ CellChangeTimes->{{3.5747530478899364`*^9, 3.5747530739993114`*^9}, 
+   3.5747532627961864`*^9}]
+}, Open  ]]
+},
+ScreenStyleEnvironment->"Presentation",
+WindowToolbars->"EditBar",
+CellGrouping->Manual,
+WindowSize->{1276, 911},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{Automatic, Automatic},
+Magnification->0.7999999523162842,
+FrontEndVersion->"8.0 for Microsoft Windows (32-bit) (November 7, 2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 145, 2, 114, "Title"],
+Cell[715, 26, 260, 5, 36, "Text"],
+Cell[978, 33, 235, 3, 36, "Subsubsection"],
+Cell[1216, 38, 620, 10, 107, "Text"],
+Cell[CellGroupData[{
+Cell[1861, 52, 280, 6, 40, "Input"],
+Cell[2144, 60, 192, 5, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2373, 70, 241, 5, 69, "Input"],
+Cell[2617, 77, 102, 1, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2756, 83, 154, 3, 40, "Input"],
+Cell[2913, 88, 72, 1, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3022, 94, 195, 4, 40, "Input"],
+Cell[3220, 100, 101, 1, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3358, 106, 246, 6, 40, "Input"],
+Cell[3607, 114, 192, 5, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3836, 124, 155, 3, 40, "Input"],
+Cell[3994, 129, 72, 1, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4103, 135, 242, 5, 69, "Input"],
+Cell[4348, 142, 76, 1, 39, "Output"]
+}, Open  ]],
+Cell[4439, 146, 54, 0, 49, "Subsection"],
+Cell[4496, 148, 523, 16, 57, "Text"],
+Cell[5022, 166, 390, 12, 40, "Input"],
+Cell[5415, 180, 101, 2, 36, "Text"],
+Cell[CellGroupData[{
+Cell[5541, 186, 120, 3, 40, "Input"],
+Cell[5664, 191, 163, 3, 39, "Output"]
+}, Open  ]],
+Cell[5842, 197, 102, 1, 36, "Subsubsection"],
+Cell[5947, 200, 295, 5, 57, "Text"],
+Cell[6245, 207, 238, 4, 61, "Text"],
+Cell[CellGroupData[{
+Cell[6508, 215, 682, 21, 69, "Input"],
+Cell[7193, 238, 130, 2, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7360, 245, 217, 6, 40, "Input"],
+Cell[7580, 253, 97, 2, 59, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7714, 260, 124, 2, 40, "Input"],
+Cell[7841, 264, 90, 1, 39, "Output"]
+}, Open  ]],
+Cell[7946, 268, 256, 4, 61, "Text"],
+Cell[CellGroupData[{
+Cell[8227, 276, 811, 26, 69, "Input"],
+Cell[9041, 304, 184, 3, 39, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9274, 313, 274, 7, 40, "Input"],
+Cell[9551, 322, 169, 3, 59, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9757, 330, 125, 2, 40, "Input"],
+Cell[9885, 334, 91, 1, 39, "Output"]
+}, Open  ]],
+Cell[9991, 338, 339, 8, 40, "Input"],
+Cell[10333, 348, 240, 3, 39, "Subsubsection"],
+Cell[10576, 353, 554, 10, 58, "Text"],
+Cell[CellGroupData[{
+Cell[11155, 367, 234, 5, 40, "Input"],
+Cell[11392, 374, 154, 2, 39, "Output"]
+}, Open  ]],
+Cell[11561, 379, 259, 5, 40, "Input"],
+Cell[CellGroupData[{
+Cell[11845, 388, 233, 5, 40, "Input"],
+Cell[12081, 395, 124, 1, 39, "Output"]
+}, Open  ]],
+Cell[12220, 399, 369, 9, 40, "Input"],
+Cell[CellGroupData[{
+Cell[12614, 412, 172, 3, 40, "Input"],
+Cell[12789, 417, 148, 3, 59, "Output"]
+}, Open  ]],
+Cell[12952, 423, 257, 3, 36, "Subsubsection"],
+Cell[13212, 428, 324, 6, 32, "Text"],
+Cell[13539, 436, 128, 2, 40, "Input"],
+Cell[CellGroupData[{
+Cell[13692, 442, 575, 10, 40, "Input"],
+Cell[14270, 454, 690, 13, 21, "Message"],
+Cell[14963, 469, 450, 9, 39, "Output"]
+}, Open  ]],
+Cell[15428, 481, 96, 1, 40, "Input"],
+Cell[CellGroupData[{
+Cell[15549, 486, 460, 9, 40, "Input"],
+Cell[16012, 497, 376, 7, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16425, 509, 153, 3, 40, "Input"],
+Cell[16581, 514, 223, 5, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16841, 524, 521, 14, 40, "Input"],
+Cell[17365, 540, 112, 1, 39, "Output"]
+}, Open  ]],
+Cell[17492, 544, 229, 3, 36, "Subsubsection"],
+Cell[17724, 549, 413, 7, 57, "Text"],
+Cell[CellGroupData[{
+Cell[18162, 560, 325, 8, 40, "Input"],
+Cell[18490, 570, 116, 1, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18643, 576, 352, 9, 40, "Input"],
+Cell[18998, 587, 144, 2, 39, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

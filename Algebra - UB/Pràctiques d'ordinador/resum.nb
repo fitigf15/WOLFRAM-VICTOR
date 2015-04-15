@@ -1,0 +1,304 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     10490,        295]
+NotebookOptionsPosition[     10064,        277]
+NotebookOutlinePosition[     10408,        292]
+CellTagsIndexPosition[     10365,        289]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["", "Text"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"RESUM", " ", "EXAMEN", " ", 
+   RowBox[{"MATHEMATICA", ":"}]}], "Title",
+  FontSize->36,
+  FontColor->RGBColor[0, 0, 1]]], "Input",
+ CellChangeTimes->{{3.564598737948126*^9, 3.564598757311007*^9}}],
+
+Cell["NOMBRES COMPLEXOS I POLINOMIS:", "Text",
+ CellChangeTimes->{{3.564599106734397*^9, 3.564599113404884*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"FormaBin", "=", 
+   RowBox[{"ComplexExpand", "[", "s", "]"}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "*", " ", "ens", " ", "dona", " ", "la", " ", "forma", " ", "binomica", 
+     " ", 
+     RowBox[{"Im", "[", "s", "]"}]}], "+", 
+    RowBox[{"Re", "[", "s", "]"}]}], " ", "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Conjugat", "=", 
+   RowBox[{"Conjugate", "[", "z1", "]"}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"arrel", " ", "de", " ", "polinomi"}], ",", "modul", ",", 
+      "angle", ",", "conjugat"}], "}"}]}], " ", 
+   "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Arrels", "=", 
+   RowBox[{"Solve", "[", 
+    RowBox[{"p", "\[Equal]", "0"}], "]"}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", "arrels", " ", "del", " ", "polinomi"}], " ", 
+   "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Factoritzacio", "=", 
+   RowBox[{"Factor", "[", "p", "]"}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", "factoritzacio", " ", "del", " ", "polinomi"}], " ", 
+   "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Quocient", "=", 
+   RowBox[{"PolynomialQuotient", "[", 
+    RowBox[{"p", ",", "q", ",", "x"}], "]"}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "*", " ", "Quocient", " ", "de", " ", "divisio", " ", "entre", " ", 
+    "polinomis"}], " ", "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Residu", "=", 
+   StyleBox[
+    RowBox[{"PolynomialRemainder", "[", 
+     RowBox[{"p", ",", "q", ",", "x"}], "]"}], "Input"]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "*", " ", "Residu", " ", "de", " ", "divisio", " ", "entre", " ", 
+    "polinomis"}], " ", "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"MCD", "=", 
+   RowBox[{"PolynomialGCD", "[", 
+    RowBox[{"q", ",", "...", ",", "p"}], "]"}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "*", " ", "Maxim", " ", "comu", " ", "divisor", " ", "entre", " ", 
+    "polinomis"}], " ", "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   StyleBox["fbinpolar", "Input"], 
+   StyleBox["=", "Input"], 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Abs", "[", "fbin", "]"}], ",", 
+     RowBox[{"Arg", "[", "fbin", "]"}]}], "}"}]}], "   ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "*", " ", "Passa", " ", "de", " ", "binomica", " ", "a", " ", "forma", " ",
+     "polar", " ", 
+    RowBox[{"{", 
+     RowBox[{"modul", ",", "angle"}], "}"}]}], " ", 
+   "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"fpolarbin", "=", 
+  RowBox[{
+   RowBox[{"modul", "*", 
+    RowBox[{"Cos", "[", "angle", "]"}]}], "+", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"modul", "*", 
+      RowBox[{"Sin", "[", "angle", "]"}]}], ")"}], "*", "I", " ", 
+    RowBox[{"(*", 
+     RowBox[{"*", " ", "Passa", " ", "de", " ", "forma", " ", "polar", " ", 
+      RowBox[{"{", 
+       RowBox[{"modul", ",", "angle"}], "}"}], " ", "a", " ", "binomica"}], 
+     " ", "**)"}]}]}]}]}], "Input",
+ CellChangeTimes->{{3.564598960234639*^9, 3.564599062468263*^9}, {
+  3.564599097535285*^9, 3.564599097719324*^9}, {3.564599182604492*^9, 
+  3.564599500241641*^9}, {3.564599745259212*^9, 3.564599857950022*^9}, {
+  3.564600363652407*^9, 3.564600387044129*^9}, {3.564600485301044*^9, 
+  3.564600512521469*^9}, {3.564607102107205*^9, 3.5646071026102333`*^9}}],
+
+Cell["DIAGONALITZACIO:", "Text",
+ CellChangeTimes->{{3.564599709817391*^9, 3.564599716713526*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pcarac", "=", 
+   RowBox[{"Det", "[", 
+    RowBox[{"Matriu", "-", 
+     RowBox[{"x", "*", 
+      RowBox[{"IdentityMatrix", "[", 
+       RowBox[{"Length", "[", "Matriu", "]"}], "]"}]}]}], "]"}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "*", " ", "ens", " ", "retorna", " ", "el", " ", "polinomi", " ", 
+    "caracteristic"}], " ", "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pcarac2", "=", 
+   RowBox[{"CharacteristicPolynomial", "[", 
+    RowBox[{"Matriu", ",", "incognites"}], "]"}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "*", " ", "ens", " ", "retorna", " ", "el", " ", "polinomi", " ", 
+    "caracteristic"}], " ", "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Vaps", "=", 
+   RowBox[{"Solve", "[", 
+    RowBox[{
+     RowBox[{"Factor", "[", "pcarac", "]"}], "\[Equal]", "0"}], "]"}]}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "*", " ", "ens", " ", "retorna", " ", "els", " ", "valors", " ", "propis",
+      " ", "de", " ", "dreta", " ", "a", " ", "esquerra", " ", "en", " ", 
+     "forma", " ", 
+     RowBox[{"{", 
+      RowBox[{"x", "\[Rule]", "vap"}], "}"}]}], ",", " ", 
+    RowBox[{
+    "ho", " ", "colocarem", " ", "de", " ", "dreta", " ", "a", " ", 
+     "esquerra", " ", "manualment", " ", "i", " ", "tindrem", " ", "un", " ", 
+     "vector", " ", "de", " ", "valors", " ", "propis"}]}], " ", 
+   "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Vaps2", "=", 
+   StyleBox[
+    RowBox[{"Eigenvalues", "[", "Matriu", "]"}],
+    FontWeight->"Bold"]}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "*", " ", "ens", " ", "retorna", " ", "els", " ", "valors", " ", 
+    "propis"}], " ", " ", "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"VepdeVap", "=", 
+   RowBox[{"NullSpace", "[", 
+    RowBox[{"Matriu", "-", 
+     RowBox[{"vap", "*", 
+      RowBox[{"IdentityMatrix", "[", 
+       RowBox[{"Length", "[", "Matriu", "]"}], "]"}]}]}], "]"}]}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "*", " ", "ens", " ", "retorna", " ", "el", " ", "vector", " ", 
+    "corresponent", " ", "al", " ", "valor", " ", "propi"}], " ", 
+   "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"VepsdeNoVaps", "=", 
+   RowBox[{"NullSpace", "[", 
+    RowBox[{"Matriu", "-", 
+     RowBox[{"MatriuVaps", ".", 
+      RowBox[{"IdentityMatrix", "[", 
+       RowBox[{"Length", "[", "Matriu", "]"}], "]"}]}]}], "]"}]}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "*", " ", "ens", " ", "retorna", " ", "el", " ", "nucli", " ", "del", " ",
+      "vector", " ", "corresponent", " ", "a", " ", "tots", " ", "els", " ", 
+     "valors", " ", "propis"}], ",", " ", 
+    RowBox[{"inclosos", " ", "els", " ", "0"}]}], " ", 
+   "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"veps", "=", 
+   RowBox[{"{", 
+    RowBox[{"VepdeVap0", ",", "...", ",", "VepdeVapN", ",", "VepsdeNoVaps"}], 
+    "}"}]}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"*", " ", "La", " ", "fem", " ", "manualment"}], ",", " ", 
+    RowBox[{
+    "ens", " ", "retorna", " ", "els", " ", "vectors", " ", "propis"}]}], 
+   "  ", "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"veps2", "=", 
+   RowBox[{"Eigenvectors", "[", "Matriu", "]"}]}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "*", " ", "ens", " ", "retorna", " ", "els", " ", "vectors", " ", 
+    "propis"}], " ", "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"vapsIveps", "=", 
+   RowBox[{"Eigensystem", "[", "Matriu", "]"}]}], 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", "ens", " ", "retorna", " ", "un", " ", "vector", 
+    RowBox[{"{", 
+     RowBox[{"vaps", ",", "veps"}], "}"}]}], " ", 
+   "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ColumnesMatriuVeps", "=", 
+   RowBox[{"Transpose", "[", "MatriuVeps", "]"}]}], 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", "ens", " ", "retorna", " ", 
+    RowBox[{"l", "'"}], "espai", " ", "generat", " ", "per", " ", "les", " ", 
+    "columnes", " ", "de", " ", "la", " ", "matriu", " ", "de", " ", "veps"}],
+    " ", "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"MatDiagonal", "=", 
+   RowBox[{
+    RowBox[{"Inverse", "[", "ColumnesMatriuVeps", "]"}], ".", "A", ".", 
+    "ColumnesMatriuVeps"}]}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "*", " ", "ens", " ", "retorna", " ", "la", " ", "matriu", " ", 
+    "diagonal"}], " ", "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"MatDiagonal2", "=", 
+   RowBox[{"DiagonalMatrix", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"vap0", "..."}], "vapN"}], "}"}], "]"}]}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "*", " ", "ens", " ", "retorna", " ", "la", " ", "matriu", " ", 
+    "diagonal"}], " ", "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ElevaMatriuaDiagaN", "=", 
+  RowBox[{
+   RowBox[{"Inverse", "[", "ColumnesMatriuVeps", "]"}], ".", 
+   RowBox[{"(", 
+    RowBox[{"A", "^", "n"}], ")"}], ".", "ColumnesMatriuVeps", 
+   RowBox[{"(*", 
+    RowBox[{
+    "*", "ens", " ", "retorna", " ", "la", " ", "matriu", " ", "diagonal", 
+     " ", "elevada", " ", "a", " ", "n"}], " ", "**)"}]}]}]}], "Input",
+ CellChangeTimes->{{3.564599740208174*^9, 3.5645997403732*^9}, {
+  3.564600628043613*^9, 3.564600757865982*^9}, {3.564600789711023*^9, 
+  3.564600821537849*^9}, {3.564600983112343*^9, 3.564601204029695*^9}, {
+  3.5646023370650997`*^9, 3.564602368784914*^9}, {3.56460280337156*^9, 
+  3.564602812058057*^9}, {3.5646068528419476`*^9, 3.564606853146965*^9}, {
+  3.564606929204315*^9, 3.5646070676452336`*^9}, {3.5646071274846563`*^9, 
+  3.5646071356331224`*^9}, {3.5646074799578147`*^9, 3.5646074844050694`*^9}, {
+  3.564607783895198*^9, 3.5646080099921303`*^9}, {3.564608048825351*^9, 
+  3.5646081616518044`*^9}, {3.564608202181123*^9, 3.564608266457799*^9}, {
+  3.564609206618572*^9, 3.5646092546193175`*^9}, {3.564609654052163*^9, 
+  3.5646096733192654`*^9}}]
+},
+WindowSize->{913, 745},
+WindowMargins->{{64, Automatic}, {Automatic, -15}},
+FrontEndVersion->"8.0 for Microsoft Windows (64-bit) (October 6, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 16, 0, 29, "Text"],
+Cell[576, 22, 233, 6, 58, "Input"],
+Cell[812, 30, 112, 1, 29, "Text"],
+Cell[927, 33, 3296, 91, 192, "Input"],
+Cell[4226, 126, 98, 1, 29, "Text"],
+Cell[4327, 129, 5733, 146, 372, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
